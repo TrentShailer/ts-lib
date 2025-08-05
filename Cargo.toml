@@ -1,0 +1,62 @@
+[workspace]
+members = ["crates/*"]
+resolver = "3"
+
+[workspace.package]
+authors = ["Trent Shailer"]
+description = "Helper libraries for my projects."
+edition = "2024"
+license = "MIT OR Apache-2.0"
+rust-version = "1.88"
+
+[workspace.lints.rust]
+"missing_docs" = "warn"
+"unused_qualifications" = "warn"
+
+[workspace.lints.clippy]
+# Easier no-STD support
+"alloc_instead_of_core" = "warn"
+"std_instead_of_alloc" = "warn"
+"std_instead_of_core" = "warn"
+
+# Debugging/in-development code
+"dbg_macro" = "warn"
+"todo" = "warn"
+"unwrap_used" = "warn"
+
+# Style
+"arbitrary_source_item_ordering" = "warn"
+"if_then_some_else_none" = "warn"
+"inconsistent_struct_constructor" = "warn"
+"map_unwrap_or" = "warn"
+"match_same_arms" = "warn"
+"mismatching_type_param_order" = "warn"
+"redundant_closure_for_method_calls" = "warn"
+"self_named_module_files" = "warn"
+"semicolon_if_nothing_returned" = "warn"
+"unnecessary_self_imports" = "warn"
+"use_self" = "warn"
+
+# Dangerous shortcuts
+"as_conversions" = "warn"
+"indexing_slicing" = "warn"
+
+# Correctness
+"cast_lossless" = "warn"
+"create_dir" = "warn"
+"exhaustive_enums" = "warn"
+"filetype_is_file" = "warn"
+"inefficient_to_string" = "warn"
+"manual_assert" = "warn"
+"needless_pass_by_value" = "warn"
+"ref_option" = "warn"
+"trivially_copy_pass_by_ref" = "warn"
+
+# Easy mistakes
+"literal_string_with_formatting_args" = "warn"
+"precedence_bits" = "warn"
+
+# Docs
+"doc_markdown" = "warn"
+"missing_panics_doc" = "warn"
+"undocumented_unsafe_blocks" = "warn"

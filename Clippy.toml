@@ -1,0 +1,2 @@
+module-items-ordered-within-groupings = "none"
+source-item-ordering = ["module", "trait"]
