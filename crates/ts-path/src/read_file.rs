@@ -72,3 +72,24 @@ pub fn read_file(path: &Path) -> Result<Vec<u8>, ReadFileError> {
 
     fs::read(path).map_err(|source| ReadFileError::read_error(source, path))
 }
+
+/// Read a file to a string, returning presentable error variants.
+pub fn read_file_to_string(path: &Path) -> Result<String, ReadFileError> {
+    if !fs::exists(path).map_err(|source| ReadFileError::read_error(source, path))? {
+        return Err(ReadFileError::DoesNotExist {
+            path: path.to_path_buf(),
+        });
+    }
+
+    let metadata = path
+        .metadata()
+        .map_err(|source| ReadFileError::read_error(source, path))?;
+
+    if metadata.is_dir() {
+        return Err(ReadFileError::NotAFile {
+            path: path.to_path_buf(),
+        });
+    }
+
+    fs::read_to_string(path).map_err(|source| ReadFileError::read_error(source, path))
+}
