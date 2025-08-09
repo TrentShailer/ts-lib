@@ -1,0 +1,20 @@
+[package]
+name = "ts-config"
+version = "0.1.0"
+
+authors.workspace = true
+description.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+schemars = { version = "1", default-features = false }
+serde = { workspace = true }
+serde_json = { workspace = true }
+ts-error = { version = "0.1", path = "../ts-error" }
+ts-json = { version = "0.1", path = "../ts-json" }
+ts-path = { version = "0.1", path = "../ts-path" }
+
+[lints]
+workspace = true
