@@ -1,0 +1,18 @@
+[package]
+authors.workspace = true
+description.workspace = true
+edition.workspace = true
+license.workspace = true
+name = "ts-json"
+rust-version.workspace = true
+version = "0.1.0"
+
+[dependencies]
+jsonschema = { version = "0.30", default-features = false }
+serde = { version = "1" }
+serde_json = { version = "1" }
+ts-ansi = { version = "0.1", path = "../ts-ansi" }
+ts-error = { version = "0.1", path = "../ts-error" }
+
+[lints]
+workspace = true
