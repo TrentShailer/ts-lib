@@ -13,8 +13,8 @@ schemars = { version = "1", default-features = false }
 serde = { workspace = true }
 serde_json = { workspace = true }
 ts-error = { version = "0.1", path = "../ts-error" }
+ts-io = { version = "0.1", path = "../ts-io" }
 ts-json = { version = "0.1", path = "../ts-json" }
-ts-path = { version = "0.1", path = "../ts-path" }
 
 [lints]
 workspace = true

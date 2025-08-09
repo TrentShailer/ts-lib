@@ -1,0 +1,15 @@
+[package]
+name = "ts-io"
+version = "0.1.0"
+
+authors.workspace = true
+description.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+ts-path = { version = "0.1", path = "../ts-path" }
+
+[lints]
+workspace = true

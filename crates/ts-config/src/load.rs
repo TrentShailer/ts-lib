@@ -1,7 +1,7 @@
 use schemars::{SchemaGenerator, generate::SchemaSettings};
 use ts_error::diagnostic::Diagnostics;
+use ts_io::{ReadFileError, read_file_to_string};
 use ts_json::{ValidationError, validate};
-use ts_path::{ReadFileError, read_file_to_string};
 
 use crate::ConfigFile;
 

@@ -691,8 +691,8 @@ dependencies = [
  "serde",
  "serde_json",
  "ts-error",
+ "ts-io",
  "ts-json",
- "ts-path",
 ]
 
 [[package]]
@@ -701,6 +701,13 @@ version = "0.1.0"
 dependencies = [
  "log",
  "ts-ansi",
+]
+
+[[package]]
+name = "ts-io"
+version = "0.1.0"
+dependencies = [
+ "ts-path",
 ]
 
 [[package]]

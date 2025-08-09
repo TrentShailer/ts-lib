@@ -3,7 +3,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use crate::DisplayPath;
+use ts_path::DisplayPath;
 
 /// Error variants for reading a file.
 #[derive(Debug)]
