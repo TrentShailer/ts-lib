@@ -116,7 +116,7 @@ impl core::fmt::Display for Diagnostics {
         Ok(())
     }
 }
-impl core::error::Error for Diagnostic {}
+impl core::error::Error for Diagnostics {}
 
 #[derive(Debug)]
 /// A diagnostic over some source file.
@@ -274,6 +274,8 @@ impl core::fmt::Display for Diagnostic {
         Ok(())
     }
 }
+
+impl core::error::Error for Diagnostic {}
 
 #[cfg(test)]
 mod test {
