@@ -1,5 +1,4 @@
 {
-  "$schema": "sample.schema.json",
   "locations": [
     {
       "name": "location\nA",
