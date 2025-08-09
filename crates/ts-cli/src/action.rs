@@ -1,6 +1,7 @@
+use alloc::string::{String, ToString};
 use std::io::{Write, stderr};
 
-use crate::style::*;
+use ts_ansi::style::*;
 
 /// Extension trait to update an action state based on the value of `self`.
 pub trait ActionResult {
@@ -78,11 +79,6 @@ impl Action {
     /// * Anything else writing to the `stdout`/`stderr` will cause this to erase them unless
     ///   [`Self::dont_erase`] is called.
     /// * If the content is wrapped, this will erase part of it, keep details and verbs short.
-    #[expect(
-        clippy::needless_pass_by_value,
-        reason = "ToString is inherited by the reference type, therefore, the caller can choose to 
-        pass a reference or a value"
-    )]
     pub fn new<S1: ToString, S2: ToString, S3: ToString>(
         actioning_verb: S1,
         actioned_verb: S2,
@@ -119,7 +115,7 @@ impl Action {
         #![expect(
             unused_must_use,
             reason = "displaying output is a non-critical part of the program, so this should not 
-            panic, additionally, having to think about the errors when calling this is a pain"
+            panic, additionally, I don't want to have to think about the errors when calling this"
         )]
 
         let mut stderr = stderr().lock();

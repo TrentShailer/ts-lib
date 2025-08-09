@@ -9,6 +9,9 @@ edition = "2024"
 license = "MIT OR Apache-2.0"
 rust-version = "1.88"
 
+[workspace.dependencies]
+log = "0.4"
+
 [workspace.lints.rust]
 "missing_docs" = "warn"
 "unused_qualifications" = "warn"
@@ -48,13 +51,13 @@ rust-version = "1.88"
 "filetype_is_file" = "warn"
 "inefficient_to_string" = "warn"
 "manual_assert" = "warn"
-"needless_pass_by_value" = "warn"
 "ref_option" = "warn"
 "trivially_copy_pass_by_ref" = "warn"
 
 # Easy mistakes
 "literal_string_with_formatting_args" = "warn"
 "precedence_bits" = "warn"
+"string_slice" = "warn"
 
 # Docs
 "doc_markdown" = "warn"

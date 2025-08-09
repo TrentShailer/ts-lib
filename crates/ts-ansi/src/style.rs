@@ -1,6 +1,32 @@
 //! ANSI codes
 
-use core::fmt::{Display, Write};
+/// Format an error message
+#[macro_export]
+#[clippy::format_args]
+macro_rules! format_error {
+    ($($arg:tt)*) => (::core::format_args!("{}{}error{}:{} {}",$crate::style::BOLD, $crate::style::RED, $crate::style::DEFAULT, $crate::style::RESET,  ::core::format_args!($($arg)*)))
+}
+
+/// Format a warning message
+#[macro_export]
+#[clippy::format_args]
+macro_rules! format_warning {
+    ($($arg:tt)*) => (::core::format_args!("{}{}warning{}:{} {}",$crate::style::BOLD, $crate::style::YELLOW, $crate::style::DEFAULT, $crate::style::RESET,  ::core::format_args!($($arg)*)))
+}
+
+/// Format a success message
+#[macro_export]
+#[clippy::format_args]
+macro_rules! format_success {
+    ($($arg:tt)*) => (::core::format_args!("{}{}Success{}:{} {}",$crate::style::BOLD, $crate::style::GREEN, $crate::style::DEFAULT, $crate::style::RESET,  ::core::format_args!($($arg)*)))
+}
+
+/// Format a failure message
+#[macro_export]
+#[clippy::format_args]
+macro_rules! format_failure {
+    ($($arg:tt)*) => (::core::format_args!("{}{}Failure{}:{} {}",$crate::style::BOLD, $crate::style::RED, $crate::style::DEFAULT, $crate::style::RESET,  ::core::format_args!($($arg)*)))
+}
 
 /// Reset styling
 pub const RESET: &str = "\x1b[0m";
@@ -88,13 +114,9 @@ pub const DIM_WHITE: &str = "\x1b[37m";
 pub const BG_DIM_WHITE: &str = "\x1b[47m";
 
 /// Set colour of text to default
-pub const DEFAULT: &str = "\x1b[99m";
+pub const DEFAULT: &str = "\x1b[39m";
 /// Set background of text to default
-pub const BG_DEFAULT: &str = "\x1b[109m";
-/// Set colour of text to default
-pub const DIM_DEFAULT: &str = "\x1b[39m";
-/// Set background of text to default
-pub const BG_DIM_DEFAULT: &str = "\x1b[49m";
+pub const BG_DEFAULT: &str = "\x1b[49m";
 
 /// Clear the terminal
 pub const CLEAR_TERMINAL: &str = "\x1bc";
@@ -106,23 +128,3 @@ pub const LINE_START: &str = "\x1b[1G";
 pub const ERASE_LINE: &str = "\x1b[0K";
 /// Move to previous line
 pub const LINE_UP: &str = "\x1b[1A";
-
-/// Format an error message
-pub fn format_error<W: Write, S: Display>(message: S) -> String {
-    format!("{BOLD}{RED}error{DEFAULT}:{RESET} {message}")
-}
-
-/// Format a warning message
-pub fn format_warning<S: Display>(message: S) -> String {
-    format!("{BOLD}{YELLOW}warning{DEFAULT}:{RESET} {message}")
-}
-
-/// Format a success message
-pub fn format_success<S: Display>(message: S) -> String {
-    format!("{BOLD}{GREEN}Success{DEFAULT}:{RESET} {message}")
-}
-
-/// Format a failure message
-pub fn format_failure<S: Display>(message: S) -> String {
-    format!("{BOLD}{RED}Failure{DEFAULT}:{RESET} {message}")
-}
