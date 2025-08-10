@@ -20,3 +20,15 @@ A collection of small-ish library crates specifically designed for my personal p
 | `ts-json`     | JSON schema validation and reporting                                   |
 | `ts-path`     | Helpers for working with paths                                         |
 | `ts-terminal` | Helpers for creating my CLIs                                           |
+
+## Publishing
+
+```bash
+cargo publish -p ts-ansi
+cargo publish -p ts-path
+cargo publish -p ts-error
+cargo publish -p ts-io
+cargo publish -p ts-json
+cargo publish -p ts-config
+cargo publish -p ts-terminal
+```
