@@ -4,7 +4,6 @@ resolver = "3"
 
 [workspace.package]
 authors = ["Trent Shailer"]
-description = "Helper libraries for my projects."
 edition = "2024"
 license = "MIT OR Apache-2.0"
 rust-version = "1.88"
