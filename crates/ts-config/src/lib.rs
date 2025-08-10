@@ -2,6 +2,8 @@
 //!
 //! Helpers for application config.
 
+#[cfg(feature = "cli")]
+pub mod cli;
 mod load;
 
 use std::{fs, io, path::PathBuf};
@@ -10,6 +12,7 @@ use schemars::JsonSchema;
 use serde::{Serialize, de::DeserializeOwned};
 
 pub use load::{LoadConfigError, try_load};
+pub use schemars;
 
 /// Trait defining a struct as representing a config file.
 pub trait ConfigFile: Default + DeserializeOwned + Serialize + JsonSchema {

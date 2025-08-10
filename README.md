@@ -11,15 +11,15 @@ A collection of small-ish library crates specifically designed for my personal p
 
 ## Crates
 
-| Crate name    | Description                                                            |
-| ------------- | ---------------------------------------------------------------------- |
-| `ts-ansi`     | Constant ANSI codes for easy styling and formatting helpers            |
-| `ts-config`   | Helpers for application config                                         |
-| `ts-error`    | Traits for convenient error reporting, and error report/stack creation |
-| `ts-io`       | Helpers for input/output related work                                  |
-| `ts-json`     | JSON schema validation and reporting                                   |
-| `ts-path`     | Helpers for working with paths                                         |
-| `ts-terminal` | Helpers for creating my CLIs                                           |
+| Crate name    | Description                                                            | Target dependent | Size    |
+| ------------- | ---------------------------------------------------------------------- | ---------------- | ------- |
+| `ts-ansi`     | Constant ANSI codes for easy styling and formatting helpers            | `mixed`          | `small` |
+| `ts-config`   | Helpers for application config                                         | `binary`         | `large` |
+| `ts-error`    | Traits for convenient error reporting, and error report/stack creation | `mixed`          | `small` |
+| `ts-io`       | Helpers for input/output related work                                  | `mixed`          | `small` |
+| `ts-json`     | JSON schema validation and reporting                                   | `mixed`          | `large` |
+| `ts-path`     | Helpers for working with paths                                         | `mixed`          | `small` |
+| `ts-terminal` | Helpers for creating my CLIs                                           | `binary`         | `small` |
 
 ## Publishing
 
