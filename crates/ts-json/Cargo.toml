@@ -1,7 +1,7 @@
 [package]
 description = "JSON schema validation and reporting"
 name = "ts-json"
-version = "0.1.0"
+version = "0.1.1"
 
 authors.workspace = true
 edition.workspace = true
@@ -12,9 +12,9 @@ rust-version.workspace = true
 serde = { workspace = true }
 serde_json = { workspace = true }
 
-jsonschema = { version = "0.30", default-features = false }
+jsonschema = { version = "0.32", default-features = false }
 ts-ansi = { version = "0.1", path = "../ts-ansi" }
-ts-error = { version = "0.1", path = "../ts-error" }
+ts-error = { version = "0.2", path = "../ts-error" }
 
 [lints]
 workspace = true

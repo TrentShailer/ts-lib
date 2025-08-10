@@ -90,11 +90,11 @@ impl ProblemMessage for ValidationErrorKind {
         match &self {
             Self::AdditionalProperties { .. } => "has unexpected properties".to_string(),
             Self::UniqueItems => "contains duplicate items".to_string(),
-            Self::OneOfMultipleValid => "matches multiple valid options".to_string(),
+            Self::OneOfMultipleValid { .. } => "matches multiple valid options".to_string(),
             Self::Required { .. } => "is missing required properties".to_string(),
-            Self::OneOfNotValid
+            Self::OneOfNotValid { .. }
             | Self::MultipleOf { .. }
-            | Self::AnyOf
+            | Self::AnyOf { .. }
             | Self::Constant { .. }
             | Self::Enum { .. }
             | Self::Not { .. } => "is not one of the valid options".to_string(),
