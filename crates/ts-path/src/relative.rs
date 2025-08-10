@@ -1,5 +1,6 @@
 use core::iter::repeat_n;
 use std::{
+    env::current_dir,
     fs,
     path::{Component, Path, PathBuf},
 };
@@ -10,6 +11,12 @@ use crate::NormalizePath;
 pub trait RelativePath {
     /// Returns the path to navigate from a source path to self.
     fn relative_to(&self, source: &Path) -> PathBuf;
+
+    /// Returns the path to navigate from the current directory to self.
+    fn relative_to_cwd(&self) -> PathBuf {
+        let current_dur = current_dir().unwrap_or_else(|_| PathBuf::from("./"));
+        self.relative_to(&current_dur)
+    }
 }
 
 impl<P: AsRef<Path>> RelativePath for P {
@@ -84,5 +91,13 @@ mod test {
             PathBuf::from("../../../dir-a/dir-b"),
             target.relative_to(source)
         );
+    }
+
+    #[test]
+    fn handles_current_dir() {
+        let target = Path::new("../ts-ansi/src/lib.rs")
+            .canonicalize()
+            .expect("canonicalize to succeed");
+        assert_eq!(Path::new("../ts-ansi/src/lib.rs"), target.relative_to_cwd());
     }
 }

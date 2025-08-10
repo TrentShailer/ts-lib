@@ -1,7 +1,7 @@
 [package]
 description = "Helpers for application config"
 name = "ts-config"
-version = "0.2.0"
+version = "0.2.1"
 
 authors.workspace = true
 edition.workspace = true
@@ -18,7 +18,7 @@ ts-json = { version = "0.1", path = "../ts-json" }
 
 argh = { version = "0.1", default-features = false, optional = true }
 ts-ansi = { version = "0.1", path = "../ts-ansi", optional = true }
-ts-path = { version = "0.1", path = "../ts-path", optional = true }
+ts-path = { version = "0.2", path = "../ts-path", optional = true }
 
 [features]
 cli = ["dep:argh", "dep:ts-ansi", "dep:ts-path"]

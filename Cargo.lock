@@ -737,7 +737,7 @@ version = "0.1.0"
 
 [[package]]
 name = "ts-config"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "argh",
  "schemars",
@@ -760,7 +760,7 @@ dependencies = [
 
 [[package]]
 name = "ts-io"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "ts-path",
 ]
@@ -778,7 +778,7 @@ dependencies = [
 
 [[package]]
 name = "ts-path"
-version = "0.1.0"
+version = "0.2.0"
 
 [[package]]
 name = "ts-terminal"
