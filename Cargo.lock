@@ -677,13 +677,6 @@ name = "ts-ansi"
 version = "0.1.0"
 
 [[package]]
-name = "ts-cli"
-version = "0.1.0"
-dependencies = [
- "ts-ansi",
-]
-
-[[package]]
 name = "ts-config"
 version = "0.1.0"
 dependencies = [
@@ -724,6 +717,13 @@ dependencies = [
 [[package]]
 name = "ts-path"
 version = "0.1.0"
+
+[[package]]
+name = "ts-terminal"
+version = "0.1.0"
+dependencies = [
+ "ts-ansi",
+]
 
 [[package]]
 name = "unicode-ident"

@@ -1,4 +1,4 @@
-//! # `ts-ansi`
+//! # `ts-terminal`
 //!
 //! Helpers for creating my CLIs
 

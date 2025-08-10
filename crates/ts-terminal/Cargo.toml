@@ -1,6 +1,6 @@
 [package]
 description = "Helpers for creating my CLIs"
-name = "ts-cli"
+name = "ts-terminal"
 version = "0.1.0"
 
 authors.workspace = true
