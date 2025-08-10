@@ -2,6 +2,13 @@
 
 A collection of small-ish library crates specifically designed for my personal projects.
 
+> [!CAUTION]
+>
+> ### This is a personal project
+>
+> Maintenance, bug fixes, new features, and support will only be provided when/if I feel like it.
+> Updates may violate semantic versioning.
+
 ## Crates
 
 | Crate name  | Description                                                            |
