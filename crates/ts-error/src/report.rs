@@ -3,6 +3,18 @@ use core::{error::Error, fmt};
 
 use ts_ansi::style::{BOLD, DEFAULT, RED, RESET};
 
+/// Trait for converting something into an error report.
+pub trait IntoReport<T> {
+    /// Convert self into an error report if self is an error.
+    fn into_report(self) -> Result<T, Report<'static>>;
+}
+
+impl<T, E: Error + 'static> IntoReport<T> for Result<T, E> {
+    fn into_report(self) -> Result<T, Report<'static>> {
+        self.map_err(|source| Report::new(source))
+    }
+}
+
 /// An error report, displays the error stack of some error.
 pub struct Report<'e> {
     /// The error for this report.

@@ -1,5 +1,4 @@
 use core::{fmt, panic::Location};
-use ts_ansi::format_error;
 
 /// Trait to log an error.
 pub trait LogError {
@@ -33,7 +32,7 @@ impl<T, E: fmt::Display> StderrError for Result<T, E> {
     fn stderr_err(self) -> Self {
         if let Err(error) = self.as_ref() {
             let location = Location::caller();
-            std::eprintln!("{}", format_error!("[{location}] {error}"));
+            std::eprintln!("{}", ts_ansi::format_error!("[{location}] {error}"));
         }
         self
     }
@@ -56,7 +55,7 @@ impl<T> StderrError for Option<T> {
     fn stderr_err(self) -> Self {
         if self.is_none() {
             let location = Location::caller();
-            std::eprintln!("{}", format_error!("[{location}] value was None"));
+            std::eprintln!("{}", ts_ansi::format_error!("[{location}] value was None"));
         }
         self
     }

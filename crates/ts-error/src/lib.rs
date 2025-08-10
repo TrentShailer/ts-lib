@@ -17,7 +17,7 @@ use alloc::string::{String, ToString};
 
 pub use logger::LogError;
 pub use program_exit::{ProgramReport, ReportProgramExit};
-pub use report::Report;
+pub use report::{IntoReport, Report};
 
 #[cfg(feature = "std")]
 pub use logger::StderrError;
