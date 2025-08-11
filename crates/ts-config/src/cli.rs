@@ -49,6 +49,7 @@ use crate::{ConfigFile, try_load};
 /// }
 /// ```
 pub struct ConfigCommand {
+    /// the config subcommand
     #[argh(subcommand)]
     subcommand: ConfigSubcommand,
 }

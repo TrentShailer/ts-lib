@@ -1,3 +1,5 @@
+//! Find the path to navigate from a source path to a target path.
+
 use core::iter::repeat_n;
 use std::{
     env::current_dir,

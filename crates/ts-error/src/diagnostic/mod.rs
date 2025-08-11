@@ -30,6 +30,7 @@ pub enum Severity {
     Warning,
 }
 impl Severity {
+    /// Return the colour for the severity.
     pub(crate) fn colour(self) -> &'static str {
         match &self {
             Self::Error => RED,
@@ -37,6 +38,7 @@ impl Severity {
         }
     }
 
+    /// Return the word for the severity.
     pub(crate) fn word(self) -> &'static str {
         match &self {
             Self::Error => "error",
@@ -167,7 +169,7 @@ impl Diagnostic {
         }
     }
 
-    /// Set the file path of the diagnostic.
+    /// Set the filepath of the diagnostic.
     pub fn file_path<S: ToString>(mut self, path: S) -> Self {
         self.file_path = Some(path.to_string());
         self
@@ -216,7 +218,7 @@ impl core::fmt::Display for Diagnostic {
             }
             f.write_char('\n')?;
         }
-        // Otherwide write line and column:
+        // Otherwise, write line and column:
         // `  | line 12, column 2`
         else if let Some(context) = &self.context {
             writeln!(

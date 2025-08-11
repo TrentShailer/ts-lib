@@ -1,3 +1,5 @@
+//! Context for a diagnostic.
+
 use crate::diagnostic::Span;
 
 use alloc::{

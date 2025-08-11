@@ -1,3 +1,5 @@
+//! Display an error stack by traversing their source.
+
 use alloc::boxed::Box;
 use core::{error::Error, fmt};
 

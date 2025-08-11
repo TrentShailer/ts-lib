@@ -1,7 +1,11 @@
+//! A simple cursor implementation to have sane error cases.
+
 #[derive(Clone, Debug)]
 /// A simple cursor over a slice.
 pub struct Cursor<'a, T: Copy + Default> {
+    /// The current index of the collection.
     index: usize,
+    /// The collection.
     collection: &'a [T],
 }
 
@@ -68,9 +72,11 @@ impl std::io::Read for Cursor<'_, u8> {
 #[derive(Clone, Copy, Debug)]
 #[non_exhaustive]
 pub struct OutOfBounds {
+    /// The number of items requested.
     requested: usize,
 }
 impl OutOfBounds {
+    /// Create a new instance of an out of bounds error.
     fn new(requested: usize) -> Self {
         Self { requested }
     }
@@ -79,7 +85,7 @@ impl core::fmt::Display for OutOfBounds {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(
             f,
-            "reading {} bytes would take the cursor out of bounds",
+            "reading {} items would take the cursor out of bounds",
             self.requested,
         )
     }

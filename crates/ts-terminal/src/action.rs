@@ -1,3 +1,5 @@
+//! Reporting an action that a CLI is performing.
+
 use alloc::string::{String, ToString};
 use std::io::{Write, stderr};
 

@@ -1,10 +1,14 @@
+//! A simple normalization of a path.
+
 use core::slice;
 use std::{
     ffi::{OsStr, OsString},
     path::{Component, MAIN_SEPARATOR_STR, Path, PathBuf, Prefix},
 };
 
+/// Custom component as [`std::path::Component`] is difficult to construct.
 #[derive(Debug)]
+#[allow(clippy::missing_docs_in_private_items)]
 enum CustomComponent<'a> {
     Prefix(OsString),
     CurDir,
@@ -13,6 +17,7 @@ enum CustomComponent<'a> {
     Normal(&'a OsStr),
 }
 impl<'a> CustomComponent<'a> {
+    /// Convert the component to an [`OsStr`]
     pub fn as_os_str(&'a self) -> &'a OsStr {
         match self {
             Self::Prefix(p) => p.as_os_str(),

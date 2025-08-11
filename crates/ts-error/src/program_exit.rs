@@ -1,3 +1,5 @@
+//! Write a report if `fn main()` returns with an error.
+
 use alloc::boxed::Box;
 use core::{error::Error, fmt};
 

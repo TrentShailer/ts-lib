@@ -1,3 +1,5 @@
+//! An opinionated way to display a path
+
 use alloc::borrow::Cow;
 use std::path::{Component, Path};
 

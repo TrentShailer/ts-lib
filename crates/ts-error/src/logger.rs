@@ -1,6 +1,9 @@
+//! Extension traits to log errors.
+
 use core::{fmt, panic::Location};
 
 /// Trait to log an error.
+#[cfg(feature = "log")]
 pub trait LogError {
     /// Log the error.
     #[track_caller]
@@ -15,6 +18,7 @@ pub trait StderrError {
     fn stderr_err(self) -> Self;
 }
 
+#[cfg(feature = "log")]
 impl<T, E: fmt::Display> LogError for Result<T, E> {
     #[track_caller]
     fn log_err(self) -> Self {
@@ -38,6 +42,7 @@ impl<T, E: fmt::Display> StderrError for Result<T, E> {
     }
 }
 
+#[cfg(feature = "log")]
 impl<T> LogError for Option<T> {
     #[track_caller]
     fn log_err(self) -> Self {

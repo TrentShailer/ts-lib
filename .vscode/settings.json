@@ -1,3 +1,3 @@
 {
-  "rust-analyzer.cargo.features": ["std", "cli"]
+  "rust-analyzer.cargo.features": ["std", "cli", "log"]
 }

@@ -1,3 +1,5 @@
+//! Wrappers over [`fs::read`] to return user friendly errors.
+
 use std::{
     fs, io,
     path::{Path, PathBuf},
@@ -43,7 +45,7 @@ impl core::error::Error for ReadFileError {
     }
 }
 impl ReadFileError {
-    #[allow(missing_docs)]
+    #[allow(clippy::missing_docs_in_private_items)]
     pub(crate) fn read_error(source: io::Error, path: &Path) -> Self {
         Self::ReadError {
             path: path.to_path_buf(),

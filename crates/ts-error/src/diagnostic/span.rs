@@ -1,3 +1,5 @@
+//! The span of some context.
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 /// A span for diagnostics, maps to a location in a source file.
 pub struct Span {
@@ -5,7 +7,7 @@ pub struct Span {
     pub line: usize,
     /// One-indexed column of the span start.
     pub column: usize,
-    /// Number of characters the span goes for.
+    /// Number of graphemes the span goes for.
     pub length: usize,
 }
 impl Default for Span {

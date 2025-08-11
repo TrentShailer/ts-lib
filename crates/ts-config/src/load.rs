@@ -1,3 +1,5 @@
+//! Load a config file
+
 use schemars::{SchemaGenerator, generate::SchemaSettings};
 use ts_error::diagnostic::Diagnostics;
 use ts_io::{ReadFileError, read_file_to_string};

@@ -1,3 +1,5 @@
+//! Easy wrapper to process some data using a child process.
+
 use std::{
     ffi::OsStr,
     io::{self, Write},
