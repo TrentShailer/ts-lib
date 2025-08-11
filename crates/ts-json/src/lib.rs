@@ -98,8 +98,11 @@ pub fn validate(
                 })
             });
 
-            let mut diagnostic = Diagnostic::error(error.kind.headline());
-            // TODO headline needs the node
+            let mut diagnostic = Diagnostic::error(format!(
+                "`{}` {}",
+                error.instance_path,
+                error.kind.headline()
+            ));
 
             diagnostic.context = context;
             diagnostic.file_path = source_path.map(|path| path.display().to_string());
