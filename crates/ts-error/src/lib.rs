@@ -15,6 +15,7 @@ mod report;
 
 use alloc::string::{String, ToString};
 
+#[cfg(feature = "log")]
 pub use logger::LogError;
 pub use program_exit::{ProgramReport, ReportProgramExit};
 pub use report::{IntoReport, Report};
