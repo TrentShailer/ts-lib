@@ -44,6 +44,7 @@ serde_json = { version = "1", default-features = false }
 # Dangerous shortcuts
 "as_conversions" = "warn"
 "indexing_slicing" = "warn"
+"string_slice" = "warn"
 
 # Correctness
 "cast_lossless" = "warn"
@@ -58,9 +59,9 @@ serde_json = { version = "1", default-features = false }
 # Easy mistakes
 "literal_string_with_formatting_args" = "warn"
 "precedence_bits" = "warn"
-"string_slice" = "warn"
 
 # Docs
 "doc_markdown" = "warn"
+"missing_docs_in_private_items" = "warn"
 "missing_panics_doc" = "warn"
 "undocumented_unsafe_blocks" = "warn"

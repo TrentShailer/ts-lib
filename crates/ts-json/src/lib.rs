@@ -85,10 +85,10 @@ pub fn validate(
                             if let Some(tag) = &node.tag {
                                 tag.span
                             } else {
-                                node.value_span
+                                node.value.span()
                             }
                         }
-                        SpannedValue::Value(_) => node.value_span,
+                        _ => node.value.span(),
                     });
 
                 span.map(|span| {
@@ -99,6 +99,8 @@ pub fn validate(
             });
 
             let mut diagnostic = Diagnostic::error(error.kind.headline());
+            // TODO headline needs the node
+
             diagnostic.context = context;
             diagnostic.file_path = source_path.map(|path| path.display().to_string());
 
@@ -127,9 +129,14 @@ mod test {
 
     #[test]
     fn validates_sample_correctly() {
-        let diagnostics = crate::validate(SOURCE, SCHEMA, Some(Path::new("../tests/sample.json")))
-            .expect("validation to succeed");
+        let diagnostics = crate::validate(
+            SOURCE,
+            SCHEMA,
+            Some(Path::new("crates/ts-json/tests/sample.json")),
+        )
+        .expect("validation to succeed");
         assert!(!diagnostics.is_empty());
-        assert_eq!(2, diagnostics.errors().count());
+        assert_eq!(4, diagnostics.errors().count());
+        eprintln!("{diagnostics}");
     }
 }

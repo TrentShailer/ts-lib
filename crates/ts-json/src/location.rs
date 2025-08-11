@@ -1,3 +1,5 @@
+//! Extensions to a [`jsonschema::paths::Location`].
+
 use jsonschema::paths::Location;
 
 /// Extension trait to get the parent of a JSON pointer.

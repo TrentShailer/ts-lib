@@ -1,14 +1,14 @@
 {
-  "locations": [
+  "array": [
     {
-      "name": "location\nA",
-      "isCool": true,
-      "coordinates": [12.0235, -43.0435]
+      "text": "다람쥐 헌\n 쳇바퀴에 타고파",
+      "flag": false,
+      "number": -1.04e2
     },
     {
-      "name": "location\"B\"",
-      "isCool": false,
-      "coordinates": [12.0235, null]
+      "text": "\"ابجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ\"",
+      "flag": true,
+      "number": null
     }
   ]
 }

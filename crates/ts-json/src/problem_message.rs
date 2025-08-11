@@ -1,8 +1,11 @@
+//! Extensions to convert validation errors into displayable errors.
+
 use jsonschema::{
     JsonType,
     error::{TypeKind, ValidationErrorKind},
 };
 
+/// Extension trait for a [`ValidationErrorKind`].
 pub trait ProblemMessage {
     /// The generic problem's headline, should be in the form `is [issue]`.
     ///
@@ -50,7 +53,7 @@ impl ProblemMessage for ValidationErrorKind {
                 Some(format!("this should have at most {limit} properties"))
             }
             Self::MinItems { limit } => Some(format!("this should have at least {limit} items")),
-            Self::Minimum { limit } => Some(format!("this should ne at least {limit}")),
+            Self::Minimum { limit } => Some(format!("this should be at least {limit}")),
             Self::MinLength { limit } => {
                 Some(format!("this should be at least {limit} characters"))
             }
@@ -127,6 +130,7 @@ impl ProblemMessage for ValidationErrorKind {
     }
 }
 
+/// Display a [`TypeKind`].
 fn display_type_kind(kind: &TypeKind) -> String {
     match kind {
         TypeKind::Single(json_type) => display_json_type(*json_type).to_string(),
@@ -141,6 +145,7 @@ fn display_type_kind(kind: &TypeKind) -> String {
         }
     }
 }
+/// Display a [`JsonType`].
 fn display_json_type(json_type: JsonType) -> &'static str {
     match json_type {
         JsonType::Array => "an array",
